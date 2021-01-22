@@ -139,7 +139,52 @@ const getRandomNumber = () => {
     return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
-const getRandomSymbole = () => {
+const getRandomSymbol = () => {
     let symbol = "!@#$%^&*(){}][=+-,./?~"
-    return symbol[(Math.floor(Math.random() * symbol.length)];
+    return symbol[(Math.floor(Math.random() * symbol.length))];
+}
+
+let answer = document.getElementById("answer");
+let length = document.getElementById("length");
+let upper = document.getElementById("upper");
+let lower = document.getElementById("lower");
+let number = document.getElementById("number");
+let symbol = document.getElementById("symbol");
+let generate = document.getElementById("generate")
+
+const randomObject = {
+    upper: getRandomUpper,
+    lower: getRandomLower,
+    number: getRandomNumber,
+    symbol: getRandomSymbol,
+}
+
+generate.addEventListener('click', () => {
+    const lengthNow = length.value;
+    const hasUpper = upper.checked;
+    const hasLower = lower.checked;
+    const hasNumber = number.checked;
+    const hasSymbol = symbol.checked;
+
+    answer.innerText = generatePassword(hasUpper, hasLower, hasNumber, hasSymbol, lengthNow);
+});
+
+function generatePassword(upper, lower, number, symbol, length) {
+    let generatePassword = "";
+
+    const count = upper + lower + number + symbol;
+    const arr = [{upper}, {lower}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+
+    if(count === 0) {
+        return '';
+    }
+
+    for(let i = 0; i < length; i+=count) {
+        arr.forEach(type => {
+            const keys = Object.keys(type)[0];
+            generatePassword += randomObject[keys]();
+        });
+    }
+    const finalpassword = generatePassword.slice(0, length);
+    return finalpassword;
 }
