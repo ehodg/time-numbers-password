@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ-lifestyle Skills</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="time">
+        <h1>Military Time</h1>
+        <div class="military-table">
+            <table class="time-table">
+                <tr class="catagory">
+                    <th>Day of Week</th>
+                    <th>Month</th>
+                    <th>Day</th>
+                    <th>Year</th>
+                    <th>Hour</th>
+                    <th>Minute</th>
+                    <th>Second</th>
+                    <th>Time-Zone</th>
+                </tr>
+                <tr class="output">
+                    <th id="military-d-o-w"></th>
+                    <th id="military-month"></th>
+                    <th id="military-day"></th>
+                    <th id="military-year"></th>
+                    <th id="military-hour"></th>
+                    <th id="military-minute"></th>
+                    <th id="military-second"></th>
+                    <th id="military-time-zone"></th>
+                </tr>
+            </table>
+        </div>   
+        <h1>Standard Time</h1>   
+        <div class="standard-table">
+            
+            <table class="time-table">
+                <tr>
+                    <th>Day of Week</th>
+                    <th>Month</th>
+                    <th>Day</th>
+                    <th>Year</th>
+                    <th>Hour</th>
+                    <th>Minute</th>
+                    <th>Second</th>
+                    <th>Time-Zone</th>
+                </tr>
+                <tr>
+                    <th id="d-o-w"></th>
+                    <th id="month"></th>
+                    <th id="day"></th>
+                    <th id="year"></th>
+                    <th id="hour"></th>
+                    <th id="minute"></th>
+                    <th id="second"></th>
+                    <th id="time-zone"></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="diagonal">
+        <h1>Diagonal Difference</h1>
+        <div class="diagonal-table" id="diagonal">
+            <button type="submit" id="sub" onclick="document.getElementById('sub').disabled = true
+            run()">Random Numbers</button>
+            <div id="grid"></div>
+        </div>
+        <div class="differcene">
+            <button type="submit" id="fin" onclick="document.getElementById('fin').disabled = true
+            getTotal()">Find Difference</button>
+            <div class="total" id="total">
+                <p id="diag-total">Answer</p>
+            </div>
+        </div>
+    </div>
+    <div class="password">
+        <p id="answer" class="answer"></p>
+        <div class="checks">
+            <label class="label">Enable UpperCase: </label>
+            <input type="checkbox" id="upper" checked class="val">
+        </div>
+        <div class="checks">
+            <label class="label">Enable LowerCase: </label>
+            <input type="checkbox" id="lower" checked class="val">
+        </div>
+        <div class="checks">
+            <label class="label">Enable numbers: </label>
+            <input type="checkbox" id="number" checked class="val">
+        </div>
+        <div class="checks">
+            <label class="label">Enable Symbols: </label>
+            <input type="checkbox" id="symbol" checked class="val">
+        </div>
+        <button id="generate" class="btn">Generate Password</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
